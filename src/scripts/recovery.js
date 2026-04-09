@@ -2,6 +2,7 @@ const username = document.querySelector("#username-recovery");
 const new_password = document.querySelector("#new-password-recovery");
 const confirm_new_password = document.querySelector("#confirm-new-password-recovery");
 const button = document.querySelector("#button-recovery");
+const checkbox = document.querySelector("#checkbox-recovery")
 
 button.addEventListener("click", (e) => {
     e.preventDefault()
@@ -40,4 +41,17 @@ button.addEventListener("click", (e) => {
     alert("senha redefinida com sucesso.");
 
     window.location.href = './login.html';
+})
+
+checkbox.addEventListener("change", (e) => {
+    const type = new_password.getAttribute("type")
+
+    if (type === 'password') {
+        new_password.setAttribute('type', 'text')
+        confirm_new_password.setAttribute('type', 'text')
+        return
+    }
+
+    new_password.setAttribute('type', 'password')
+    confirm_new_password.setAttribute('type', 'password')
 })

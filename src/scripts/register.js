@@ -2,6 +2,8 @@ const name = document.querySelector("#name-register");
 const username = document.querySelector("#username-register");
 const password = document.querySelector("#password-register");
 const button = document.querySelector("#button-register");
+const checkbox = document.querySelector("#checkbox-register")
+
 
 button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -25,5 +27,13 @@ button.addEventListener("click", (e) => {
 
 })
 
+checkbox.addEventListener("change", (e) => {
+    const type = password.getAttribute("type")
 
+    if (type === 'password') {
+        password.setAttribute('type', 'text')
+        return
+    }
 
+    password.setAttribute('type', 'password')
+})
